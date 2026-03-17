@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN 3 Kendalrejo - Ramah & Berkualitas</title>
+    
+    <!-- Script Tailwind & Font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .hero-section {
+            background: linear-gradient(
+                to bottom,
+                rgba(22, 163, 74, 0.85),
+                rgba(21, 128, 61, 0.9)
+            ),
+            url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: #f0fdf4;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-green-700 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-1 rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-green-700"></i>
+                </div>
+                <span class="font-extrabold tracking-tight text-lg uppercase">SDN 3 Kendalrejo</span>
+            </div>
+
+            <div class="hidden md:flex gap-8 font-semibold">
+                <a href="#" class="hover:text-yellow-400 transition-colors">Beranda</a>
+                <a href="#profil" class="hover:text-yellow-400 transition-colors">Profil</a>
+                <a href="#galeri" class="hover:text-yellow-400 transition-colors">Galeri</a>
+                <a href="#daftar" class="hover:text-yellow-400 transition-colors">Pendaftaran</a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-2xl p-2 focus:outline-none">
+                <i id="menu-icon" class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-green-800 text-white flex flex-col items-center justify-center gap-8 text-2xl pt-16">
+        <a onclick="toggleMenu()" href="#">Beranda</a>
+        <a onclick="toggleMenu()" href="#profil">Profil</a>
+        <a onclick="toggleMenu()" href="#galeri">Galeri</a>
+        <a onclick="toggleMenu()" href="#daftar">Pendaftaran</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-section min-h-screen flex items-center justify-center text-center text-white px-6 pt-20">
+        <div class="max-w-4xl">
+            <span class="bg-yellow-400 text-green-900 px-4 py-1 rounded-full font-bold text-sm uppercase mb-6 inline-block">Banyuwangi, Jawa Timur</span>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Pendidikan Bermutu <br> Untuk <span class="text-yellow-400">Generasi Hebat</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 text-green-50 opacity-90 max-w-2xl mx-auto">
+                Mencetak generasi yang Berakhlak Mulia, Cerdas, dan Adaptif dengan semangat kebersamaan.
+            </p>
+
+            <div class="glass-card p-6 rounded-3xl mb-10 inline-block">
+                <p class="font-black text-2xl md:text-4xl tracking-widest mb-2">RAMAH</p>
+                <p class="text-xs md:text-sm font-medium tracking-widest opacity-80 uppercase">
+                    Responsif • Akuntabel • Melayani • Adaptif • Harmonis
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-green-900 px-8 py-4 rounded-2xl font-bold text-lg transition-all transform hover:scale-105 shadow-xl">
+                    Daftar Sekarang <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#profil" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+                    Lihat Profil
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section id="stats-section" class="relative z-10 -mt-16 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl text-center border-b-4 border-green-600 transform hover:-translate-y-2 transition-transform">
+                <div class="text-green-600 text-3xl mb-2"><i class="fas fa-user-graduate"></i></div>
+                <h2 class="text-4xl font-extrabold text-slate-800"><span class="counter" data-target="80">0</span>+</h2>
+                <p class="text-slate-500 font-medium">Siswa Aktif</p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl text-center border-b-4 border-green-600 transform hover:-translate-y-2 transition-transform">
+                <div class="text-green-600 text-3xl mb-2"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h2 class="text-4xl font-extrabold text-slate-800"><span class="counter" data-target="9">0</span>+</h2>
+                <p class="text-slate-500 font-medium">Guru Hebat</p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl text-center border-b-4 border-green-600 transform hover:-translate-y-2 transition-transform">
+                <div class="text-green-600 text-3xl mb-2 float-anim"><i class="fas fa-futbol"></i></div>
+                <h2 class="text-4xl font-extrabold text-slate-800"><span class="counter" data-target="4">0</span>+</h2>
+                <p class="text-slate-500 font-medium">Ekskul</p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl text-center border-b-4 border-green-600 transform hover:-translate-y-2 transition-transform">
+                <div class="text-green-600 text-3xl mb-2"><i class="fas fa-star"></i></div>
+                <h2 class="text-4xl font-extrabold text-slate-800 uppercase">B</h2>
+                <p class="text-slate-500 font-medium">Akreditasi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL -->
+    <section id="profil" class="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <h2 class="text-sm font-bold text-green-600 tracking-[0.2em] uppercase mb-4">Tentang Kami</h2>
+            <h3 class="text-4xl font-extrabold text-slate-800 mb-6 leading-tight">Membangun Karakter Melalui Pendidikan Ramah Anak</h3>
+            <!-- PERUBAHAN TEKS SESUAI INSTRUKSI -->
+            <p class="text-slate-600 leading-relaxed mb-8 text-lg">
+                SDN 3 Kendalrejo berlokasi di jantung Kecamatan Tegaldlimo Kab.Banyuwangi, menyediakan lingkungan belajar yang aman, nyaman, dan inklusif. Kami percaya setiap anak memiliki potensi unik yang harus diasah dengan kasih sayang dan profesionalisme.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
+                <!-- Item 1 -->
+                <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="flex gap-4 p-4 rounded-2xl transition-all duration-300 feature-card hover:shadow-md group">
+                    <div class="bg-green-100 text-green-700 w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold flex items-center gap-2">Kurikulum Merdeka <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-500">Materi ajar relevan & modern.</p>
+                    </div>
+                </a>
+                
+                <!-- Item 2 -->
+                <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="flex gap-4 p-4 rounded-2xl transition-all duration-300 feature-card hover:shadow-md group">
+                    <div class="bg-green-100 text-green-700 w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold flex items-center gap-2">Pembelajaran Mendalam <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-500">Mengasah kognitif & kritis.</p>
+                    </div>
+                </a>
+                
+                <!-- Item 3 -->
+                <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="flex gap-4 p-4 rounded-2xl transition-all duration-300 feature-card hover:shadow-md group">
+                    <div class="bg-green-100 text-green-700 w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold flex items-center gap-2">Tes Akademik (TKA) <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-500">Evaluasi berkala standar nasional.</p>
+                    </div>
+                </a>
+                
+                <!-- Item 4 -->
+                <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="flex gap-4 p-4 rounded-2xl transition-all duration-300 feature-card hover:shadow-md group">
+                    <div class="bg-green-100 text-green-700 w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold flex items-center gap-2">Sekolah Hijau <i class="fas fa-external-link-alt text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-500">Lingkungan asri dan tenang.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="relative">
+            <!-- FOTO: Menggunakan foto anak sekolah Indonesia asli yang berkualitas tinggi -->
+            <img src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?q=80&w=2000&auto=format&fit=crop" 
+                 class="rounded-3xl shadow-2xl z-10 relative object-cover h-[500px] w-full" 
+                 alt="Siswa-siswi sekolah dasar di Indonesia sedang berinteraksi ceria">
+            <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-400 rounded-full -z-10"></div>
+            <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-green-200 rounded-full -z-10"></div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri" class="py-24 bg-slate-100 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <h2 class="text-sm font-bold text-green-600 tracking-[0.2em] uppercase mb-4">Momen Sekolah</h2>
+            <h3 class="text-4xl font-extrabold text-slate-800 mb-4 font-jakarta">Galeri Kegiatan</h3>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="group relative overflow-hidden rounded-3xl h-64 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                    <p class="text-white font-bold">Kegiatan Olahraga</p>
+                    <p class="text-xs text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">Klik untuk lihat di Google Drive <i class="fas fa-external-link-alt ml-1"></i></p>
+                </div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="group relative overflow-hidden rounded-3xl h-64 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                    <p class="text-white font-bold">Belajar di Kelas</p>
+                    <p class="text-xs text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">Klik untuk lihat di Google Drive <i class="fas fa-external-link-alt ml-1"></i></p>
+                </div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="group relative overflow-hidden rounded-3xl h-64 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                    <p class="text-white font-bold">Kebersamaan Siswa</p>
+                    <p class="text-xs text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">Klik untuk lihat di Google Drive <i class="fas fa-external-link-alt ml-1"></i></p>
+                </div>
+            </a>
+        </div>
+
+        <div class="text-center">
+            <a href="https://drive.google.com/drive/folders/1w3SK1g3I7bD9QtKo9kGtqofvMg9q08YN?usp=sharing" target="_blank" class="inline-flex items-center gap-3 bg-white text-green-700 border-2 border-green-600 px-8 py-3 rounded-2xl font-bold hover:bg-green-600 hover:text-white transition-all shadow-md">
+                <i class="fab fa-google-drive text-xl"></i> Lihat Galeri Lengkap di Google Drive
+            </a>
+        </div>
+    </section>
+
+    <!-- PENDAFTARAN -->
+    <section id="daftar" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-1/2 bg-green-700 p-12 text-white flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-6">Ayo Daftar Sekarang!</h3>
+                <p class="mb-8 opacity-80 leading-relaxed">Isi formulir singkat di samping untuk mulai mendaftarkan putra-putri Anda. Tim kami akan segera menghubungi Anda kembali.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i class="fab fa-whatsapp text-2xl text-yellow-400"></i>
+                        <span>Admin 1: 0823-1372-2918</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-yellow-400"></i>
+                        <span>Kendalrejo, Banyuwangi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 p-12">
+                <form onsubmit="submitForm(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Nama Lengkap Siswa</label>
+                        <input id="nama" type="text" placeholder="Contoh: Budi Santoso" required 
+                        class="w-full px-5 py-4 bg-slate-100 border-none rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Nomor WhatsApp Orang Tua</label>
+                        <input id="wa" type="tel" placeholder="08xxxx" required 
+                        class="w-full px-5 py-4 bg-slate-100 border-none rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition-all">
+                    </div>
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-5 rounded-2xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-95">
+                        Kirim Pendaftaran
+                    </button>
+                    <p class="text-center text-xs text-slate-400">Data Anda aman dan hanya digunakan untuk pendaftaran.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="flex items-center gap-3 justify-center md:justify-start mb-4">
+                    <i class="fas fa-graduation-cap text-yellow-400 text-2xl"></i>
+                    <span class="font-bold text-xl uppercase tracking-wider">SDN 3 Kendalrejo</span>
+                </div>
+                <p class="text-slate-400 text-sm">© 2024 Hak Cipta Dilindungi. Kabupaten Banyuwangi.</p>
+            </div>
+            <div class="flex gap-6 text-2xl">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUCCESS MODAL -->
+    <div id="modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/80 backdrop-blur-sm">
+        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full text-center">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class="fas fa-check"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-2">Berhasil Terkirim!</h4>
+            <p class="text-slate-500 mb-8">Silakan lanjutkan pesan ke WhatsApp panitia untuk konfirmasi.</p>
+            <button onclick="closeModal()" class="w-full bg-green-600 text-white font-bold py-4 rounded-2xl">Lanjutkan ke WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- FLOAT WA -->
+    <a href="https://wa.me/6282313722918" 
+    class="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl z-40 transition-all hover:scale-110 active:scale-95 group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-xl text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Hubungi Kami</span>
+    </a>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'bg-green-800/95', 'backdrop-blur-md');
+                nav.classList.remove('py-3', 'bg-green-700');
+            } else {
+                nav.classList.add('py-3', 'bg-green-700');
+                nav.classList.remove('py-2', 'bg-green-800/95', 'backdrop-blur-md');
+            }
+        });
+
+        // Form Submit
+        let tempLink = "";
+        function submitForm(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const wa = document.getElementById('wa').value;
+            const pesan = `Halo SDN 3 Kendalrejo,%0A%0ASaya ingin mendaftarkan siswa baru:%0A- Nama: ${nama}%0A- No. WA: ${wa}%0A%0AMohon informasi langkah selanjutnya. Terima kasih.`;
+            
+            tempLink = `https://wa.me/6282313722918?text=${pesan}`;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            window.open(tempLink, '_blank');
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        // COUNTER ANIMATION LOGIC
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animate, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                animate();
+            });
+        }
+
+        const statsSection = document.getElementById('stats-section');
+        let counterStarted = false;
+
+        window.addEventListener('scroll', () => {
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.2;
+
+            if (sectionPos < screenPos && !counterStarted) {
+                initCounters();
+                counterStarted = true;
+            }
+        });
+    </script>
+
+</body>
+</html>
